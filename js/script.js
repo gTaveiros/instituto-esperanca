@@ -92,6 +92,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            // COLETA OS DADOS DO FORMULÁRIO
+            const dadosCadastro = {
+                cpf: cpf ? cpf.value : "",
+                telefone: telefone ? telefone.value : "",
+                cep: cep ? cep.value : "",
+                dataCadastro: new Date().toLocaleString("pt-BR")
+            };
+
+            // SALVA OS DADOS NO LOCALSTORAGE
+            localStorage.setItem(
+                "cadastroInstitutoEsperanca",
+                JSON.stringify(dadosCadastro)
+            );
+
             // Mensagem na página
             if (mensagemSucesso) {
                 mensagemSucesso.textContent =
